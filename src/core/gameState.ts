@@ -33,20 +33,19 @@ export const createInitialState = (length: number, base: GameBase, secret: strin
 export const addGuessToHistory = (
   state: GameState,
   guess: string,
-  result: GuessResult
+  result: GuessResult,
+  elapsedSeconds: number
 ): GameState => {
-  const currentElapsed = Math.floor((Date.now() - state.startTime) / 1000);
-
   const newEntry: HistoryEntry = {
     guess,
     result,
-    time: currentElapsed,
+    time: elapsedSeconds,
   };
 
   return {
     ...state,
     history: [...state.history, newEntry],
     isWon: result.bulls === state.length,
-    elapsedTime: currentElapsed,
+    elapsedTime: elapsedSeconds,
   };
 };
