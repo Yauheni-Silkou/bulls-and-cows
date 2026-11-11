@@ -1,11 +1,11 @@
-export const createInitialState = (length, base, secret) => {
+export const createInitialState = (length, base, secret, startTimestamp) => {
     return {
         length,
         base,
         secretNumber: secret,
         history: [],
         isWon: false,
-        startTime: Date.now(),
+        startTime: startTimestamp,
         elapsedTime: 0,
     };
 };

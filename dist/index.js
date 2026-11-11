@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const base = parseInt(settings.baseSelect.value, 10);
             const length = parseInt(settings.lengthSelect.value, 10);
             const secret = generateSecret(length, base);
-            let state = createInitialState(length, base, secret);
+            const startTimeStamp = Date.now();
+            let state = createInitialState(length, base, secret, startTimeStamp);
             appRoot.textContent = '';
             const game = createGameScreen(state, () => {
                 clearInterval(timerId);
