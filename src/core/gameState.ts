@@ -18,14 +18,19 @@ export interface GameState {
   elapsedTime: number;
 }
 
-export const createInitialState = (length: number, base: GameBase, secret: string): GameState => {
+export const createInitialState = (
+  length: number,
+  base: GameBase,
+  secret: string,
+  startTimestamp: number
+): GameState => {
   return {
     length,
     base,
     secretNumber: secret,
     history: [],
     isWon: false,
-    startTime: Date.now(),
+    startTime: startTimestamp,
     elapsedTime: 0,
   };
 };

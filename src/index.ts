@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const length = parseInt(settings.lengthSelect.value, 10);
 
       const secret = generateSecret(length, base);
-      let state = createInitialState(length, base, secret);
+      const startTimeStamp = Date.now();
+      let state = createInitialState(length, base, secret, startTimeStamp);
 
       appRoot.textContent = '';
 
